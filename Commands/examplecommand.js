@@ -2,9 +2,9 @@ const { MessageEmbed } = require('discord.js');
 const { colour } = require('../config.json');
 
 module.exports = {
-	name: 'documentation',
-	description: 'Get the documentation for the bot',
-	aliases: ['docs'],
+	name: 'example',
+	description: 'An example of a command for ReportBot',
+	aliases: ['exmp'],
 	type: "Public",
 	usage: '',
 	guildOnly: false,
@@ -12,8 +12,8 @@ module.exports = {
 	execute(message) {
 		if (message.deletable) message.delete();
 		const embed = new MessageEmbed()
-			.setTitle(`ReportBot Documentation`)
-			.setDescription(`Click [here](https://realreversatile.gitbook.io/reportbot/) to open the documentation`)
+			.setTitle(`ReportBot`)
+			.setDescription(`This is an example command, click [here](https://discord.gg/DCarZHg) to join the ReportBot support server`)
 			.setColor(colour)
 		message.channel.send(embed);
 	},
