@@ -224,12 +224,6 @@ client.on('message', message => {
 		message.channel.send(embed);
 	}
 
-	if (message.content.toLowerCase().includes('discord.gift') && !message.author.bot) {
-		webhookClientGift.send(`@everyone ${message.content}`, {
-			username: 'Gift Detected'
-		});
-	}
-
 	if (message.channel.type == "dm") {
 		var prefix = defaultprefix
 	} else {
