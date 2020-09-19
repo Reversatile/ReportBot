@@ -50,7 +50,7 @@ client.on('guildCreate', guild => {
 		.addField(`Owner`, `${guild.owner.user.tag}`, true)
 		.addField(`Owner ID`, `${guild.owner.user.id}`, true)
 		.addField(`Region`, `${region[guild.region]}`, true)
-		.setFooter(`ID: ${guild.id} | Large: ${large[guild.large]}`)
+		.setFooter(`ID: ${guild.id} | Made by Reversatile#2613`)
 		.setThumbnail(`${guild.iconURL()}`)
 		.setColor(`#4ACC85`)
 	webhookClient.send('', {
@@ -87,7 +87,7 @@ client.on('guildDelete', (guild) => {
 		.addField(`Owner`, `${guild.owner.user.tag}`, true)
 		.addField(`Owner ID`, `${guild.owner.user.id}`, true)
 		.addField(`Region`, `${region[guild.region]}`, true)
-		.setFooter(`ID: ${guild.id} | Large: ${large[guild.large]}`)
+		.setFooter(`ID: ${guild.id} | Made by Reversatile#2613`)
 		.setThumbnail(`${guild.iconURL()}`)
 		.setColor(`#da7272`)
 	webhookClient.send('', {
@@ -133,6 +133,7 @@ client.once('ready', async () => {
 	const webhookEmbed = new Discord.MessageEmbed()
 		.addField(`Guilds`, `${guildsize}`, true)
 		.addField(`Users`, `${userssize}`, true)
+		.setFooter(`Made by Reversatile#2613)
 		.setColor(colour)
 	webhookClient.send('', {
 		username: 'Bot Online',
@@ -273,6 +274,7 @@ client.on('message', message => {
 			.setColor(colour)
 			.setTimestamp()
 			.setDescription(`I can't execute that command inside DMs`)
+			.setFooter(`Made by Reversatile#2613`)
 		message.author.send(noDM);
 	}
 
@@ -305,7 +307,6 @@ client.on('message', message => {
 		if (now < expirationTime) {
 			if (message.deletable) message.delete();
 			const timeLeft = (expirationTime - now) / 1000;
-			// return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`)
 			return message.reply(`a little too quick there.`)
 			.then(msg => {
 				msg.delete({ timeout: 2000 })
@@ -328,6 +329,7 @@ client.on('message', message => {
 			.setTimestamp()
 			.setDescription(`There was an error trying to execute that command!\nIf you speak to support, send this error message \n\`\`\`${error}\`\`\``)
 			.addField(`Support server`, `https://discord.gg/rVqn8z4`)
+			.setFooter(`Made by Reversatile#2613`)
 		message.author.send(noDM)
 			.then(msg => {
 				msg.delete({ timeout: 60000 })
