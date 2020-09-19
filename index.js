@@ -6,9 +6,6 @@ const webhookClient = new Discord.WebhookClient('', '');
 const bot = new Discord.Client(); 
 const client = new Discord.Client();
 
-const DBL = require("dblapi.js");
-const dbl = new DBL('', client);
-
 const guildConfig = require('./storage/guildConfig.json');
 const guildchannels = require('./storage/guildChannels.json');
 const botStats = require('./storage/botStats.json');
@@ -60,7 +57,6 @@ client.on('guildCreate', guild => {
 		username: 'Guild Join',
 		embeds: [webhookEmbed],
 	});
-	dbl.postStats(client.guilds.cache.size);
 	
 	console.log(`Joined new guild: ${guild.name} \nTotal members: ${guild.memberCount}`);
 	const name = guild.name
@@ -127,7 +123,6 @@ const activitieslist = [
 ]; 
 
 client.once('ready', async () => {
-	dbl.postStats(client.guilds.cache.size);
 	const botname = client.user.username;
 	var guildsize = client.guilds.cache.size.toLocaleString();
 	var normalsize = bot.guilds.cache.size;
@@ -323,7 +318,7 @@ client.on('message', message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	try {
-		command.execute(message, args, client, dbl);
+		command.execute(message, args, client);
 	} catch (error) {
 		console.error(error);
 		if (message.deletable) message.delete();
