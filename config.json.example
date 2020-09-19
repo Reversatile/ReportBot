@@ -1,0 +1,18 @@
+{
+	"prefix": "r.",
+	"defaultprefix": "r.",
+	"token": "",
+	"colour": "#7289DA",
+	"ownerid": ["242274961702518785"],
+	"premiumguilds": ["743114370544042105"],
+	"activity": {
+		"delay": "10000",
+		"one": "r.help",
+		"two": "r.report"
+	},
+	"status": {
+		"type": "available",
+		"streaming": "false",
+		"url": "https://www.twitch.tv/reversatile"
+	}
+}
